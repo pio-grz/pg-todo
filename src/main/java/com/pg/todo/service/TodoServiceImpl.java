@@ -15,22 +15,22 @@ public class TodoServiceImpl implements TodoService {
     private TodoRepository todoRepository;
 
     @Override
-    public Iterable<Todo> listAllTodos(Integer pageNr, Integer howManyOnPage) {
+    public Iterable<Todo> listAll(Integer pageNr, Integer howManyOnPage) {
         return todoRepository.findAll(PageRequest.of(pageNr,howManyOnPage));
     }
 
     @Override
-    public Optional<Todo> getTodoById(Integer id) {
+    public Optional<Todo> get(Integer id) {
         return todoRepository.findById(id);
     }
 
     @Override
-    public Todo saveTodo(Todo todo) {
+    public Todo save(Todo todo) {
         return todoRepository.save(todo);
     }
 
     @Override
-    public void deleteTodo(Integer id) {
+    public void delete(Integer id) {
         todoRepository.deleteById(id);
     }
 }
